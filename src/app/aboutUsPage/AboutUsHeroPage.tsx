@@ -20,7 +20,7 @@ export default function AboutUsHeroPage() {
       {/* Content */}
       <div className="absolute inset-0 flex items-center">
         <div className="max-w-7xl mx-auto px-6 w-full">
-          <h1 className="text-2xl md:text-4xl font-bold">
+          <h1 className="text-2xl text-black md:text-4xl font-bold">
             About Us
           </h1>
           <p className="mt-2 text-sm md:text-base text-gray-700">

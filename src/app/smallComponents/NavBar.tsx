@@ -35,7 +35,7 @@ useEffect(() => {
 
 
   return (
-    <header className="w-full bg-white shadow-sm">
+    <header className="w-full bg-white text-black shadow-sm">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
 
         {/* Logo */}
@@ -89,7 +89,7 @@ useEffect(() => {
     <div className="absolute top-full left-0 mt-3 w-60 bg-white shadow-lg border rounded-md z-50">
       <ul className="flex flex-col text-sm">
         <Link
-          href="/services/education-counseling"
+          href="/services/educationCounselling"
           onClick={() => setServicesOpen(false)}
           className="px-4 py-2 hover:bg-orange-50 hover:text-orange-500"
         >
@@ -97,7 +97,7 @@ useEffect(() => {
         </Link>
 
         <Link
-          href="/services/admission-guidance"
+          href="/services/educationGuidence"
           onClick={() => setServicesOpen(false)}
           className="px-4 py-2 hover:bg-orange-50 hover:text-orange-500"
         >
@@ -105,7 +105,7 @@ useEffect(() => {
         </Link>
 
         <Link
-          href="/services/education-abroad"
+          href="/services/educationAbroad"
           onClick={() => setServicesOpen(false)}
           className="px-4 py-2 hover:bg-orange-50 hover:text-orange-500"
         >
@@ -113,7 +113,7 @@ useEffect(() => {
         </Link>
 
         <Link
-          href="/services/interview-preparation"
+          href="/services/interviewPreparation"
           onClick={() => setServicesOpen(false)}
           className="px-4 py-2 hover:bg-orange-50 hover:text-orange-500"
         >

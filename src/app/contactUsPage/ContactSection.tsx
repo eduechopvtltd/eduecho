@@ -3,7 +3,7 @@ import LocationMap from "./LocationMap";
 
 export default function ContactSection() {
   return (
-    <section className="w-full bg-white px-6 py-12 md:px-16">
+    <section className="w-full  px-6 py-12 md:px-16">
       <div className="max-w-7xl mx-auto px-4 md:px-16">
 
         {/* DESKTOP */}

@@ -5,7 +5,7 @@ import Home from "../page";
 
 export default function SkillDevelopment() {
   return (
-    <section className="w-full bg-white py-10 md:py-24">
+    <section className="w-full  py-10 md:py-24">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* DESKTOP VIEW */}
@@ -13,7 +13,7 @@ export default function SkillDevelopment() {
           {/* LEFT CONTENT */}
           <div className="w-[455px] flex flex-col gap-4">
             <div className="w-14 h-[2.4px] bg-orange-500" />
-            <h2 className="text-3xl font-extrabold leading-10 font-['Khula']">
+            <h2 className="text-3xl text-black font-extrabold leading-10 font-['Khula']">
               Elevate Your Potential with <br />
               Professional Skill Development
             </h2>
@@ -40,7 +40,7 @@ export default function SkillDevelopment() {
           {/* HEADING */}
           <div className="w-80 flex flex-col gap-2.5">
             <div className="w-11 h-[2px] bg-orange-500" />
-            <h2 className="text-2xl font-extrabold leading-8 font-['Khula']">
+            <h2 className="text-2xl text-black font-extrabold leading-8 font-['Khula']">
               Elevate Your <br />
               Potential with <br />
               Professional Skill <br />

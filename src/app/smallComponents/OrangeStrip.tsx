@@ -18,7 +18,7 @@ export default function OrangeStrip() {
             className="shrink-0"
           />
           <div>
-            <h3 className="font-bold text-lg">EXPERT GUIDANCE</h3>
+            <h3 className="font-bold text-black text-lg">EXPERT GUIDANCE</h3>
             <p className="text-sm mt-1">
               Our experienced consultants provide tailored advice to help you
               achieve your academic and career aspirations.
@@ -36,7 +36,7 @@ export default function OrangeStrip() {
             className="shrink-0"
           />
           <div>
-            <h3 className="font-bold text-lg">GLOBAL OPPORTUNITIES</h3>
+            <h3 className="font-bold text-black text-lg">GLOBAL OPPORTUNITIES</h3>
             <p className="text-sm mt-1">
               EduEcho connects you to leading universities worldwide for a
               successful international education journey.
@@ -54,7 +54,7 @@ export default function OrangeStrip() {
             className="shrink-0"
           />
           <div>
-            <h3 className="font-bold text-lg">END-TO-END SUPPORT</h3>
+            <h3 className="font-bold text-lg text-white">END-TO-END SUPPORT</h3>
             <p className="text-sm mt-1">
               From career counseling to visa assistance, we guide you through
               every step of your journey.

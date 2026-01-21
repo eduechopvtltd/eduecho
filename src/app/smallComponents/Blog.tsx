@@ -40,13 +40,13 @@ export default function Blog() {
     setActive((prev) => (prev === blogs.length - 1 ? 0 : prev + 1));
 
   return (
-    <section className="bg-white py-16">
+    <section className=" py-16">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Heading */}
         <div className="flex flex-col items-center gap-4 mb-12">
           <div className="w-10 h-[2px] bg-orange-500" />
-          <h2 className="text-2xl md:text-3xl font-bold">
+          <h2 className="text-2xl text-black md:text-3xl font-bold">
             Read our latest blog
           </h2>
         </div>
@@ -108,7 +108,7 @@ function BlogCard({ blog }: { blog: any }) {
           <span>{blog.date}</span>
         </div>
 
-        <h3 className="font-bold text-base leading-6">
+        <h3 className="font-bold text-base text-blackleading-6">
           {blog.title}
         </h3>
 

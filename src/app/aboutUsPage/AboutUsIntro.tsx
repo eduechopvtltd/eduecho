@@ -4,7 +4,7 @@ import { welcomeImageGirl1,welcomeImageGirl2,boyWithBag } from "../../../assets/
 
 export default function AboutUsIntro() {
   return (
-    <section className="w-full bg-white py-12 md:py-20">
+    <section className="w-full py-12 md:py-20">
       <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-10 items-center">
 
         {/* LEFT IMAGE STACK */}
@@ -35,7 +35,7 @@ export default function AboutUsIntro() {
 
         {/* RIGHT CONTENT */}
         <div className="space-y-4 pl-5 md:pl-0 md:text-left">
-          <h2 className="text-xl md:text-2xl font-bold leading-snug">
+          <h2 className="text-xl text-black md:text-2xl font-bold leading-snug">
             Welcome to Eduecho—Your Gateway to Global Education Opportunities!
           </h2>
 

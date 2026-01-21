@@ -83,7 +83,7 @@ export default function TestimonialAbout() {
               <div className={`w-2 h-4 ${testimonials[active].color}`} />
             </div>
 
-            <p className="mt-3 text-sm font-bold font-['Nunito']">
+            <p className="mt-3 text-sm text-black font-bold font-['Nunito']">
               {testimonials[active].name}
             </p>
           </div>

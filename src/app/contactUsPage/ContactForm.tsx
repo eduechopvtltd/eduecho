@@ -49,7 +49,7 @@ export default function ContactForm() {
       } else {
         setStatus("Something went wrong. Please try again.");
       }
-    } catch (error) {
+    } catch {
       setStatus("Something went wrong. Please try again.");
     } finally {
       setSubmitting(false);
@@ -58,18 +58,24 @@ export default function ContactForm() {
 
   return (
     <div className="w-full flex flex-col gap-4">
-      <h2 className=" text-3xl md:text-4xl font-bold font-['Khula']">
+      <h2 className="text-3xl text-black md:text-4xl font-bold font-['Khula']">
         Get in touch with us ✨
       </h2>
 
       <form
         onSubmit={handleSubmit}
-        className="w-full bg-white rounded-lg border border-gray-200 p-6 md:p-8 flex flex-col gap-4"
+        className="w-full rounded-lg border border-gray-200 p-6 md:p-8 flex flex-col gap-4"
       >
         {/* Name */}
         <div>
-          <label className="block text-sm font-medium mb-1">Name *</label>
+          <label
+            htmlFor="name"
+            className="block text-sm font-medium mb-1"
+          >
+            Name *
+          </label>
           <input
+            id="name"
             type="text"
             name="name"
             value={formData.name}
@@ -82,9 +88,15 @@ export default function ContactForm() {
 
         {/* Phone */}
         <div>
-          <label className="block text-sm font-medium mb-1">Phone</label>
+          <label
+            htmlFor="phone"
+            className="block text-sm font-medium mb-1"
+          >
+            Phone
+          </label>
           <input
-            type="number"
+            id="phone"
+            type="tel"
             name="phone"
             value={formData.phone}
             onChange={handleChange}
@@ -95,8 +107,14 @@ export default function ContactForm() {
 
         {/* Email */}
         <div>
-          <label className="block text-sm font-medium mb-1">Email *</label>
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium mb-1"
+          >
+            Email *
+          </label>
           <input
+            id="email"
             type="email"
             name="email"
             value={formData.email}
@@ -109,8 +127,14 @@ export default function ContactForm() {
 
         {/* Message */}
         <div>
-          <label className="block text-sm font-medium mb-1">Message *</label>
+          <label
+            htmlFor="message"
+            className="block text-sm font-medium mb-1"
+          >
+            Message *
+          </label>
           <textarea
+            id="message"
             name="message"
             value={formData.message}
             onChange={handleChange}
@@ -129,7 +153,7 @@ export default function ContactForm() {
           {submitting ? "Sending..." : "Submit"}
         </button>
 
-        {/* Status Message */}
+        {/* Status */}
         {status && (
           <p className="text-center text-sm text-green-600 mt-2">
             {status}
