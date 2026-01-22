@@ -57,8 +57,8 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="w-full flex flex-col gap-4">
-      <h2 className="text-3xl text-black md:text-4xl font-bold font-['Khula']">
+    <div className="w-full flex text-black  dark:text-white  bg-white dark:bg-black flex-col gap-4">
+      <h2 className="text-3xl md:text-4xl font-bold font-['Khula']">
         Get in touch with us ✨
       </h2>
 

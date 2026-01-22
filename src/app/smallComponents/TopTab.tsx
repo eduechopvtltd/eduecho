@@ -24,15 +24,15 @@ const TopTab = () => {
        <div className="flex items-center gap-3">
   <span className="hidden sm:block">Follow us :</span>
 
-  <a href="#" className="hover:opacity-80">
+  <a href="https://www.facebook.com/eduecho.pvt.ltd" className="hover:opacity-80">
     <img src={facebook.src} alt="Facebook" className="w-4 h-4" />
   </a>
 
-  <a href="#" className="hover:opacity-80">
+  <a href="https://www.instagram.com/eduecho.pvt.ltd/" className="hover:opacity-80">
     <img src={instagram.src} alt="Instagram" className="w-4 h-4" />
   </a>
 
-  <a href="#" className="hover:opacity-80">
+  <a href="https://www.linkedin.com/company/eduechopvtltd" className="hover:opacity-80">
     <img src={linkdlin.src} alt="LinkedIn" className="w-4 h-4" />
   </a>
 </div>

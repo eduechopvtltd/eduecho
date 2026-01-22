@@ -1,5 +1,5 @@
 // app/components/WhyChooseUs.tsx
-
+import { chooseUs } from "../../../assets/images"; 
 export default function WhyChooseUs() {
   const items = [
     {
@@ -29,7 +29,8 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="relative bg-[#4C3B78] py-16 md:py-28">
+    <section className="relative bg-[#4C3B78] py-16 md:py-28"
+    style={{ backgroundImage: `url(${chooseUs.src})` }}>
       {/* Overlay */}
       <div className="absolute inset-0 bg-[#4C3B78]/90" />
 

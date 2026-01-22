@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { graduationImage } from "../../../assets/images";
 
 const testimonials = [
   {
@@ -32,7 +33,11 @@ export default function Testimonial() {
     setActive((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
 
   return (
-    <section className="relative bg-[url('/images/testimonial-bg.jpg')] bg-cover bg-center">
+   <section
+  className="relative bg-cover bg-center"
+  style={{ backgroundImage: `url(${graduationImage.src})` }}
+>
+
       {/* Purple Overlay */}
       <div className="absolute inset-0 bg-[#4C3B78]/90" />
 

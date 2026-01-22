@@ -58,7 +58,7 @@ export default function TestimonialAbout() {
               </p>
 
               <div className="flex justify-between items-center">
-                <span className="text-lg font-bold font-['Nunito']">
+                <span className="text-lg text-black font-bold font-['Nunito']">
                   {t.name}
                 </span>
                 <div className="flex gap-2">

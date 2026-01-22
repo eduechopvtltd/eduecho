@@ -43,7 +43,7 @@ export default function Hero() {
     <div
       className="
         relative z-50 w-full sm:max-w-md
-        rounded-2xl bg-white shadow-xl
+        rounded-2xl text-black  dark:text-white  bg-white dark:bg-black shadow-xl
         max-h-[90vh] overflow-y-auto
         p-4 sm:p-6
       "

@@ -43,11 +43,12 @@ import visaServices from './visaServices.png';
 import facebook from './Facebook.png';
 import instagram from './Instagram.png';
 import linkdlin from './linkdlin.png';
+import chooseUs from './chooseUs.jpg'
 export{
     bgImage1,boyWithBag,eduecho,compass,celebGraduation,discussionBlazer,educationAbroad,educationCounslling,email,examPreppage,girlStudyingWhiteTop,
     girlTalking,GirlWithPen,globeGraduation,graduationImage,groupStudyYellow,guySeeingPhone,guysOnStairs,
     HLPP82,homePageBoyPotential,interviewLaptop,InterviewPrep,laptopAndPens,latestBlog,location,newDocument,
     phoneCall,showingPresentation,visasImages,welcomeImageGirl1,welcomeImageGirl2,writingPenImage,
     homepage,expert,global,endToEnd,educationCounselingServices,admissionGuidence,educationServices,
-    interviewPrepServices,examPrepServices,visaServices,facebook,instagram,linkdlin,
+    interviewPrepServices,examPrepServices,visaServices,facebook,instagram,linkdlin,chooseUs,
 }

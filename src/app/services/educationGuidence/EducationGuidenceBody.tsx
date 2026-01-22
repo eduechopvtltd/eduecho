@@ -1,7 +1,7 @@
 import { GirlWithPen } from "../../../../assets/images";
 export default function AdmissionGuidanceBody() {
   return (
-    <section className="w-full max-w-7xl mx-auto px-4 md:px-12 lg:px-20 py-10 space-y-16">
+    <section className="w-full  text-black dark:text-white  px-4 md:px-12 lg:px-20 py-10 space-y-16">
 
       {/* HERO */}
       <div className="grid md:grid-cols-2 gap-10 items-center">
@@ -9,7 +9,7 @@ export default function AdmissionGuidanceBody() {
           <h1 className="text-orange-500 text-2xl md:text-4xl font-bold font-['Khula']">
             Admission Guidance: Your Gateway to Success
           </h1>
-          <p className="text-sm md:text-base text-black leading-7 font-['Nunito_Sans']">
+          <p className="text-sm md:text-base  leading-7 font-['Nunito_Sans']">
             Choosing the right educational institution is a pivotal step toward a bright future. However, the 
 admission process can be complex and daunting. Our Admission Guidance services are 
 designed to simplify this journey, providing expert support and personalized solutions to help 
@@ -43,7 +43,7 @@ you secure a spot at your dream institution.
           Our Services Include:
         </h2>
 
-        <ul className="list-disc pl-5 space-y-3 text-black text-sm md:text-base font-['Nunito_Sans']">
+        <ul className="list-disc pl-5 space-y-3 text-sm md:text-base font-['Nunito_Sans']">
           <li><b>Institution Shortlisting:</b> We identify programs and universities that align with your academic profile and career objectives.</li>
           <li><b>Application Assistance:</b> Get help with completing forms, gathering required documents, and meeting deadlines.</li>
           <li><b>Essay & SOP Writing:</b> Craft compelling statements of purpose (SOPs) and essays that highlight your strengths and aspirations.</li>
@@ -59,7 +59,7 @@ you secure a spot at your dream institution.
           Who Can Benefit from Admission Guidance?
         </h2>
 
-        <ul className="list-disc pl-5 text-black space-y-3 text-sm md:text-base font-['Nunito_Sans']">
+        <ul className="list-disc pl-5 space-y-3 text-sm md:text-base font-['Nunito_Sans']">
           <li><b>High School Students:</b>  Plan your undergraduate journey and secure admissions at top colleges.</li>
           <li><b>Postgraduate Aspirants:</b> Identify the best programs and universities for advanced studies.</li>
           <li><b>International Students:</b> Get support navigating complex admission and visa processes for studying abroad.</li>
@@ -73,7 +73,7 @@ you secure a spot at your dream institution.
           Your Success, Our Priority
         </h2>
 
-        <p className="text-sm md:text-base text-black leading-7 font-['Nunito_Sans']">
+        <p className="text-sm md:text-base leading-7 font-['Nunito_Sans']">
           Navigating the admission process requires precision, dedication, and a clear strategy. Our Admission Guidance services ensure you have the expertise and resources to 
 make informed decisions, stand out in the competitive application pool, and achieve your academic dreams. <br /><br />Take the first step toward a brighter future. Contact us today for professional Admission Guidance and let us help you turn your aspirations into reality!
         </p>

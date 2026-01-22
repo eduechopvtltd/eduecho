@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { bgImage1 } from "../../../../assets/images";
 
-export default function EducationAbroadHero() {
+export default function VisaServicesHero() {
   return (
     <section className="relative w-full">
       {/* Background image */}
@@ -21,10 +21,10 @@ export default function EducationAbroadHero() {
       <div className="absolute inset-0 flex items-center">
         <div className="max-w-7xl mx-auto px-6 w-full">
           <h1 className="text-2xl text-black md:text-4xl font-bold">
-            Interview Preparation
+           Visa Services
           </h1>
           <p className="mt-2 text-sm md:text-base text-gray-700">
-            Home <span className="mx-2">›</span> Interview Preparation
+            Home <span className="mx-2">›</span> Visa Services
           </p>
         </div>
       </div>

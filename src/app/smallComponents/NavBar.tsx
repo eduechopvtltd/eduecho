@@ -7,6 +7,7 @@ import { eduecho } from "../../../assets/images";
 import { useState, useRef, useEffect} from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import Link from "next/link";
+import EnquireNowForm from "./EnquireNowForm";
 
 
 
@@ -16,6 +17,7 @@ const NavBar = () => {
 
   const pathname = usePathname();
   const servicesRef = useRef<HTMLDivElement | null>(null);
+const [enquireOpen, setEnquireOpen] = useState(false);
 
 useEffect(() => {
   const handleClickOutside = (event: MouseEvent) => {
@@ -35,7 +37,7 @@ useEffect(() => {
 
 
   return (
-    <header className="w-full bg-white text-black shadow-sm">
+    <header className="w-full text-black  dark:text-white  bg-white dark:bg-black shadow-sm">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
 
         {/* Logo */}
@@ -54,7 +56,7 @@ useEffect(() => {
   <a
     href="/"
     className={`hover:text-orange-500 ${
-      pathname === "/" ? "text-orange-500" : "text-black"
+      pathname === "/" ? "text-orange-500" : ""
     }`}
   >
     HOME
@@ -63,7 +65,7 @@ useEffect(() => {
   <a
     href="/aboutUsPage"
     className={`hover:text-orange-500 ${
-      pathname === "/aboutUsPage" ? "text-orange-500" : "text-black"
+      pathname === "/aboutUsPage" ? "text-orange-500" : ""
     }`}
   >
     ABOUT US
@@ -73,7 +75,7 @@ useEffect(() => {
   <button
     onClick={() => setServicesOpen(!servicesOpen)}
     className={`flex items-center gap-1 hover:text-orange-500 ${
-      pathname.startsWith("/services") ? "text-orange-500" : "text-black"
+      pathname.startsWith("/services") ? "text-orange-500" : ""
     }`}
   >
     SERVICES
@@ -86,7 +88,7 @@ useEffect(() => {
   </button>
 
   {servicesOpen && (
-    <div className="absolute top-full left-0 mt-3 w-60 bg-white shadow-lg border rounded-md z-50">
+    <div className="absolute top-full left-0 mt-3 w-60 text-black  dark:text-white  bg-white dark:bg-black shadow-lg border rounded-md z-50">
       <ul className="flex flex-col text-sm">
         <Link
           href="/services/educationCounselling"
@@ -121,7 +123,7 @@ useEffect(() => {
         </Link>
 
         <Link
-          href="/services/examination-preparation"
+          href="/services/examinationPreparation"
           onClick={() => setServicesOpen(false)}
           className="px-4 py-2 hover:bg-orange-50 hover:text-orange-500"
         >
@@ -129,7 +131,7 @@ useEffect(() => {
         </Link>
 
         <Link
-          href="/services/visa-services"
+          href="/services/visaServices"
           onClick={() => setServicesOpen(false)}
           className="px-4 py-2 hover:bg-orange-50 hover:text-orange-500"
         >
@@ -142,9 +144,9 @@ useEffect(() => {
 
 
   <a
-    href="/blog"
+    href="/blogPage"
     className={`hover:text-orange-500 ${
-      pathname === "/blog" ? "text-orange-500" : "text-black"
+      pathname === "/blog" ? "text-orange-500" : ""
     }`}
   >
     BLOG
@@ -153,15 +155,19 @@ useEffect(() => {
   <a
     href="/contactUsPage"
     className={`hover:text-orange-500 ${
-      pathname === "/contactUsPage" ? "text-orange-500" : "text-black"
+      pathname === "/contactUsPage" ? "text-orange-500" : ""
     }`}
   >
     CONTACT US
   </a>
 
-  <button className="bg-orange-500 text-white px-5 py-2 rounded-md hover:bg-orange-600">
-    Enquire Now
-  </button>
+ <button
+  onClick={() => setEnquireOpen(true)}
+  className="bg-orange-500 text-white px-5 py-2 rounded-md hover:bg-orange-600"
+>
+  Enquire Now
+</button>
+
 </nav>
 
 
@@ -176,20 +182,30 @@ useEffect(() => {
 
       {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden bg-white border-t">
+        <div className="md:hidden text-black  dark:text-white  bg-white dark:bg-black border-t">
           <div className="flex flex-col gap-4 px-6 py-6 text-sm font-medium">
             <a href="/" onClick={() => setOpen(false)}>HOME</a>
             <a href="/aboutUsPage" onClick={() => setOpen(false)}>ABOUT US</a>
             <a href="/services" onClick={() => setOpen(false)}>SERVICES</a>
             <a href="/blog" onClick={() => setOpen(false)}>BLOG</a>
             <a href="/contactUsPage" onClick={() => setOpen(false)}>CONTACT US</a>
-            <button className="bg-orange-500 text-white py-2 rounded-md">
-              Enquire Now
-            </button>
+           <button
+  onClick={() => setEnquireOpen(true)}
+  className="bg-orange-500 text-white py-2 rounded-md"
+>
+  Enquire Now
+</button>
+
           </div>
         </div>
       )}
+     {enquireOpen && (
+  <EnquireNowForm onClose={() => setEnquireOpen(false)} />
+)}
+
+
     </header>
+    
   );
 };
 

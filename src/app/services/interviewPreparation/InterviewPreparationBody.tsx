@@ -51,11 +51,11 @@ export default function InterviewPreparationBody() {
         </h2>
 
         <ul className="list-disc pl-5 space-y-3 text-sm md:text-base font-['Nunito_Sans']">
-          <li><b>Resume and Portfolio Review:</b> Ensure your application materials reflect your strengths and align with the role you’re targeting.</li>
-          <li><b>Behavioral Interview Training:</b> Master the STAR method (Situation, Task, Action, Result).</li>
-          <li><b>Industry-Specific Guidance:</b> Prepare for technical and industry-related questions.</li>
-          <li><b>Soft Skills Training:</b> Improve communication, body language, and presentation.</li>
-          <li><b>Stress Management Techniques:</b> Learn how to stay calm and focused under pressure.</li>
+          <li><b>Resume and Portfolio Review:</b> <br />Ensure your application materials reflect your strengths and align with the role you’re targeting.</li>
+          <li><b>Behavioral Interview Training:</b><br />E Master the STAR method (Situation, Task, Action, Result) to answer competency-based questions effectively.</li>
+          <li><b>Industry-Specific Guidance:</b> <br />EPrepare for technical and industry-related questions with expert advice and resources.</li>
+          <li><b>Soft Skills Training:</b> <br />EImprove communication, body language, and presentation to make a strong impression.</li>
+          <li><b>Stress Management Techniques:</b><br />E Learn how to stay calm and focused under pressure.</li>
         </ul>
       </div>
 
@@ -66,10 +66,10 @@ export default function InterviewPreparationBody() {
         </h2>
 
         <ul className="list-disc pl-5 space-y-3 text-sm md:text-base font-['Nunito_Sans']">
-          <li><b>Job Seekers:</b> Ace interviews for entry-level, mid-level, or senior positions.</li>
-          <li><b>Students:</b> Prepare for college, scholarship, or internship interviews.</li>
-          <li><b>Professionals:</b> Transition to new roles or industries with confidence.</li>
-          <li><b>Executives:</b> Excel in leadership role interviews and boardroom discussions.</li>
+          <li><b>Job Seekers:</b><br />E Ace interviews for entry-level, mid-level, or senior positions.</li>
+          <li><b>Students:</b><br />E Prepare for college, scholarship, or internship interviews.</li>
+          <li><b>Professionals:</b><br />E Transition to new roles or industries with confidence.</li>
+          <li><b>Executives:</b> <br />Excel in leadership role interviews and boardroom discussions.</li>
         </ul>
       </div>
 

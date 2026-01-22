@@ -1,10 +1,14 @@
 // app/components/KnowMoreCTA.tsx
 import Image from "next/image";
-import { guysOnStairs } from "../../../assets/images";
+import { guysOnStairs,celebGraduation } from "../../../assets/images";
 
 export default function KnowMore() {
   return (
-    <section className="relative w-full bg-[#4C3B78] py-12 md:py-20">
+    <section
+  className="relative w-full bg-cover bg-center py-12 md:py-20"
+  style={{ backgroundImage: `url(${celebGraduation.src})` }}
+>
+
       {/* Background image (optional if you already have parent bg) */}
       <div className="absolute inset-0 bg-[#4C3B78]/90" />
 
