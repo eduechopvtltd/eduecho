@@ -9,7 +9,6 @@ import {
   admissionGuidence,
   educationServices,
   interviewPrepServices,
-  examPreppage,
   visaServices,
   examPrepServices,
 } from "../../../assets/images";
@@ -72,83 +71,58 @@ const services = [
   },
 ];
 
+
 export default function HomePageServices() {
-  const [activeRow, setActiveRow] = useState<number | null>(1);
-
   return (
-    <section className="text-black  dark:text-white  bg-white dark:bg-black py-16">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Heading */}
-        <div className="flex flex-col items-center gap-5 mb-14">
-          <div className="w-14 h-[2px] bg-orange-500" />
-          <h2 className="text-3xl  font-bold">Our Services</h2>
-        </div>
+    <section className="bg-gray-100 px-4 py-12">
+      {/* Heading */}
+      <div className="flex flex-col items-center mb-10">
+        <span className="w-12 h-[2px] bg-orange-500 mb-3" />
+        <h2 className="text-2xl font-bold text-black">Our Services</h2>
+      </div>
 
-        {/* GRID */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {services.map((service) => {
-            const isActive = activeRow === service.row;
+      {/* Grid */}
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
+        {services.map((service, index) => (
+          <div
+            key={index}
+            className="flex flex-col bg-white rounded-md shadow-sm overflow-hidden"
+          >
+            {/* Image Section */}
+           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-t-md">
+  <Image
+    src={service.img}
+    alt={service.title}
+    fill
+    priority={service.id === 1}
+    className="object-cover"
+  />
+</div>
+              {/* Overlay */}
+             
 
-            return (
-              <div
-                key={service.id}
-                onMouseEnter={() => setActiveRow(service.row)}
-                className="bg-white rounded-md overflow-hidden shadow-md"
-              >
-                {/* IMAGE */}
-                <div className="relative h-96">
-                  <Image
-                    src={service.img}
-                    alt={service.title}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0flex items-center justify-center text-center px-4">
-                    <h3 className="text-white text-4xl font-bold uppercase leading-tight whitespace-pre-line">
-                     
-                    </h3>
-                  </div>
-                </div>
+            {/* Content Section */}
+            <div className="bg-zinc-300 px-6 py-7 flex flex-col gap-4 flex-1">
+              <h4 className="text-black text-xl font-bold font-['Khula'] leading-8 text-center">
+                {service.title}
+              </h4>
 
-                {/* CONTENT – DESKTOP (PAIR-BASED) */}
-                <div
-                  className={`hidden md:block bg-zinc-300/60 transition-all duration-300 ${
-                    isActive ? "block" : "hidden"
-                  }`}
-                >
-                  <div className="p-6 space-y-4">
-                    <h4 className="text-xl text-black font-bold">{service.title}</h4>
-                    <p className="text-sm text-gray-600 leading-6">
-                      {service.desc}
-                    </p>
-                    <Link
+              <p className="text-gray-500 text-sm font-bold font-['Nunito'] leading-6 ">
+                {service.desc}
+              </p>
+
+              <Link
   href={service.link}
-  className="inline-block bg-indigo-900 text-white px-6 py-3 text-sm font-bold rounded-sm"
+  className="mt-auto w-fit bg-indigo-900 text-white px-6 py-3 rounded-sm text-sm font-bold hover:bg-indigo-800 transition"
 >
   Read More
 </Link>
 
-                  </div>
-                </div>
-
-                {/* CONTENT – MOBILE (ALWAYS VISIBLE) */}
-                <div className="md:hidden bg-zinc-300 p-6 space-y-4">
-                  <h4 className="text-2xl text-black font-bold">{service.title}</h4>
-                  <p className="text-base text-gray-600 leading-7">
-                    {service.desc}
-                  </p>
-                 <Link
-  href={service.link}
-  className="inline-block bg-indigo-900 text-white px-8 py-4 text-lg font-bold rounded-sm"
->
-  Read More
-</Link>
-
-                </div>
-              </div>
-            );
-          })}
-        </div>
+            </div>
+          </div>
+          
+        ))}
+        
       </div>
     </section>
   );

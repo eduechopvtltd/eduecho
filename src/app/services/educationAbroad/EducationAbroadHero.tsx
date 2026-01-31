@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { groupStudyYellow } from "../../../../assets/images";
+import {  bgImage1} from "../../../../assets/images";
 
 export default function EducationAbroadHero() {
   return (
@@ -7,14 +7,14 @@ export default function EducationAbroadHero() {
       {/* Background image */}
       <div className="relative h-[260px] md:h-[360px]">
         <Image
-          src={groupStudyYellow}
+          src={bgImage1}
           alt="Contact Us"
           fill
           className="object-cover"
         />
 
         {/* White overlay */}
-        <div className="absolute inset-0 bg-white/80" />
+        
       </div>
 
       {/* Content */}

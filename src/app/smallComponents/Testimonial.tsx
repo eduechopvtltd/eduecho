@@ -41,7 +41,7 @@ export default function Testimonial() {
       {/* Purple Overlay */}
       <div className="absolute inset-0 bg-[#4C3B78]/90" />
 
-      <div className="relative max-w-7xl mx-auto px-6 py-16 md:py-24">
+      <div className="relative max-w-7xl mx-auto px-6 py-16 md:py-24 ">
         {/* Heading */}
         <div className="flex flex-col items-center gap-5 mb-12">
           <h2 className="text-white text-2xl md:text-4xl font-bold font-['Khula']">
@@ -51,11 +51,11 @@ export default function Testimonial() {
         </div>
 
         {/* DESKTOP VIEW */}
-        <div className="hidden md:flex justify-center gap-7">
+        <div className="hidden md:flex justify-center gap-7 ">
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="w-96 h-80 px-8 bg-white rounded-[10px] flex flex-col justify-center gap-6"
+              className="w-96 h-80 px-8 bg-white rounded-[10px] flex flex-col justify-center gap-6 transition-transform duration-300 ease-in-out hover:scale-105"
             >
               <p className="text-black text-base leading-9 font-['Nunito']">
                 {t.text}
@@ -65,7 +65,7 @@ export default function Testimonial() {
                 <span className="text-lg font-bold font-['Nunito']">
                   {t.name}
                 </span>
-                <div className="flex gap-2">
+                <div className="flex gap-2 ">
                   <div className={`w-3 h-6 ${t.color}`} />
                   <div className={`w-3 h-6 ${t.color}`} />
                 </div>

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { groupStudyYellow } from "../../../assets/images";
+import { groupStudyYellow ,bgImage1} from "../../../assets/images";
 
 export default function AboutUsHeroPage() {
   return (
@@ -7,14 +7,14 @@ export default function AboutUsHeroPage() {
       {/* Background image */}
       <div className="relative h-[260px] md:h-[360px]">
         <Image
-          src={groupStudyYellow}
+          src={bgImage1}
           alt="About Us"
           fill
           className="object-cover"
         />
 
         {/* White overlay */}
-        <div className="absolute inset-0 bg-white/80" />
+     
       </div>
 
       {/* Content */}

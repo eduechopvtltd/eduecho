@@ -20,7 +20,7 @@ export default function Footer() {
           {/* BRAND */}
           <div className="flex flex-col gap-6">
             <Image src={eduecho} alt="EduEcho" width={260} height={56} />
-            <p className="opacity-80 text-sm leading-6 font-['Nunito_Sans']">
+            <p className="opacity-80 text-sm-bold leading-6 font-['Nunito_Sans']">
               At Eduecho, we specialize in providing comprehensive education
               consultancy services. Our mission is to help students like you
               achieve your academic and career goals, whether you want to study

@@ -50,10 +50,32 @@ export default function WhyChooseUs() {
               key={index}
               className="bg-white rounded-md px-6 py-8 md:px-8 md:py-10 text-center"
             >
-              <h3 className="text-black text-sm md:text-base font-extrabold uppercase mb-3 font-['Khula']">
+              <h3
+  className="
+    text-black
+    text-[14px] md:text-[16px]
+    leading-[28px] md:leading-[34px]
+    tracking-tightest
+    font-extrabold
+    uppercase
+    mb-3
+    font-['Khula']
+  "
+>
+
                 {item.title}
               </h3>
-              <p className="text-gray-500 text-sm md:text-base font-bold leading-6 md:leading-7 font-['Nunito']">
+              <p
+  className="
+    text-[#686F7A]
+    text-[13.5px] md:text-[16px]
+    leading-[24.3px] md:leading-[29px]
+    tracking-tightest
+    font-bold
+    font-['Nunito']
+  "
+>
+
                 {item.desc}
               </p>
             </div>

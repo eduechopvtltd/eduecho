@@ -8,17 +8,24 @@ const TopTab = () => {
     <div className="w-full bg-[#3E2A7B] text-white text-sm">
       <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
         
-        {/* Left */}
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-1">
-            <Phone size={14} />
-            <span>+91 7411605384</span>
-          </div>
-          <div className="hidden sm:flex items-center gap-1">
-            <Mail size={14} />
-            <span>help@eduecho.in</span>
-          </div>
-        </div>
+       {/* Left */}
+<div className="flex items-center gap-4">
+  <a
+    href="tel:+917411605384"
+    className="flex items-center gap-1 hover:text-orange-500"
+  >
+    <Phone size={14} />
+    <span>+91 7411605384</span>
+  </a>
+
+  <a
+    href="mailto:help@eduecho.in"
+    className="hidden sm:flex items-center gap-1 hover:text-orange-500"
+  >
+    <Mail size={14} />
+    <span>help@eduecho.in</span>
+  </a>
+</div>
 
         {/* Right */}
        <div className="flex items-center gap-3">

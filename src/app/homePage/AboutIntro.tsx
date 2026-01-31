@@ -8,16 +8,16 @@ export default function AboutIntro() {
       <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-10 items-center">
 
         {/* LEFT IMAGE STACK */}
-        <div className="hidden md:flex md:flex-col gap-4 justify-center">
+        <div className="hidden md:flex md:flex-col gap-4 justify-center ">
           <Image
             src={welcomeImageGirl1}
             alt="Students studying"
-            className="w-1/2 md:w-full h-auto rounded-md"
+            className="w-1/2 md:w-full h-auto rounded-md transition-transform duration-300 ease-in-out hover:scale-105"
           />
           <Image
             src={welcomeImageGirl2}
             alt="Classroom discussion"
-            className="w-1/2 md:w-full h-auto rounded-md"
+            className="w-1/2 md:w-full h-auto rounded-md transition-transform duration-300 ease-in-out hover:scale-105"
           />
         </div>
 
@@ -26,7 +26,7 @@ export default function AboutIntro() {
           <Image
             src={boyWithBag}
             alt="Student pointing"
-            className="w-full max-w-sm md:max-w-md h-auto rounded-md"
+            className="w-full max-w-sm md:max-w-md h-auto rounded-md transition-transform duration-300 ease-in-out hover:scale-105"
             priority
           />
         </div>
@@ -37,11 +37,11 @@ export default function AboutIntro() {
             Welcome to Eduecho—Your Gateway to Global Education Opportunities!
           </h2>
 
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-gray-600 dark:text-white">
            At Eduecho, we specialize in providing comprehensive education consultancy services. Our mission is to help students like you achieve your academic and career goals, whether you want to study business, medicine, technology, or other fields. With our expert guidance, you can navigate the path to higher education with ease.
           </p>
 
-          <ul className="space-y-2 text-sm text-gray-700">
+          <ul className="space-y-2 text-sm text-gray-700 dark:text-white">
             <li className="flex items-center gap-2  md:justify-start">
               ✔ Comprehensive Consultancy
             </li>

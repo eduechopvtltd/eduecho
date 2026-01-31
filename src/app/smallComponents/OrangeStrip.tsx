@@ -54,7 +54,7 @@ export default function OrangeStrip() {
             className="shrink-0"
           />
           <div>
-            <h3 className="font-bold text-lg text-white">END-TO-END SUPPORT</h3>
+            <h3 className="font-bold text-lg text-black">END-TO-END SUPPORT</h3>
             <p className="text-sm mt-1">
               From career counseling to visa assistance, we guide you through
               every step of your journey.
