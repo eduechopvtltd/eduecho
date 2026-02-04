@@ -48,11 +48,11 @@ export default function WhyChooseUs() {
           {items.map((item, index) => (
             <div
               key={index}
-              className="bg-white rounded-md px-6 py-8 md:px-8 md:py-10 text-center"
+              className="bg-white dark:bg-black rounded-md px-6 py-8 md:px-8 md:py-10 text-center"
             >
               <h3
   className="
-    text-black
+    text-black dark:text-white
     text-[14px] md:text-[16px]
     leading-[28px] md:leading-[34px]
     tracking-tightest
@@ -67,7 +67,7 @@ export default function WhyChooseUs() {
               </h3>
               <p
   className="
-    text-[#686F7A]
+    text-[#686F7A] dark:text-white
     text-[13.5px] md:text-[16px]
     leading-[24.3px] md:leading-[29px]
     tracking-tightest

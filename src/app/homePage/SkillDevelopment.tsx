@@ -17,7 +17,7 @@ export default function SkillDevelopment() {
               Elevate Your Potential with <br />
               Professional Skill Development
             </h2>
-            <p className="text-gray-500 text-base font-bold leading-8 font-['Nunito']">
+            <p className="text-gray-500 dark:text-white text-base font-bold leading-8 font-['Nunito']">
               Enhance your career with our Corporate Training and Soft Skills
               programs, fostering communication, leadership, and professional
               excellence.

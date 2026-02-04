@@ -55,9 +55,9 @@ export default function Testimonial() {
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="w-96 h-80 px-8 bg-white rounded-[10px] flex flex-col justify-center gap-6 transition-transform duration-300 ease-in-out hover:scale-105"
+              className="w-96 h-80 px-8 bg-white dark:bg-black  rounded-[10px] flex flex-col justify-center gap-6 transition-transform duration-300 ease-in-out hover:scale-105"
             >
-              <p className="text-black text-base leading-9 font-['Nunito']">
+              <p className="text-black dark:text-white text-base leading-9 font-['Nunito']">
                 {t.text}
               </p>
 
@@ -77,8 +77,8 @@ export default function Testimonial() {
         {/* MOBILE VIEW */}
         <div className="md:hidden relative flex flex-col items-center">
           {/* Card */}
-          <div className="w-72 min-h-[260px] bg-white rounded-lg border border-orange-500 p-6 text-center">
-            <p className="text-sm leading-7 text-black font-['Nunito']">
+          <div className="w-72 min-h-[260px] bg-white dark:bg-black dark:text-white rounded-lg border border-orange-500 p-6 text-center">
+            <p className="text-sm leading-7 text-black dark:text-white  font-['Nunito']">
               {testimonials[active].text}
             </p>
 
@@ -95,7 +95,7 @@ export default function Testimonial() {
           {/* LEFT ARROW */}
           <button
             onClick={prev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center"
+            className="absolute left-0 top-1/2 -translate-y-1/2 w-12 h-12 bg-white dark:bg-black rounded-full shadow-lg flex items-center justify-center"
           >
             ←
           </button>
@@ -103,7 +103,7 @@ export default function Testimonial() {
           {/* RIGHT ARROW */}
           <button
             onClick={next}
-            className="absolute right-0 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center"
+            className="absolute right-0 top-1/2 -translate-y-1/2 w-12 h-12 bg-white dark:bg-black rounded-full shadow-lg flex items-center justify-center"
           >
             →
           </button>

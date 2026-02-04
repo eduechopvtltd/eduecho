@@ -15,7 +15,7 @@ export default function KnowMore() {
       <div className="relative max-w-7xl mx-auto px-6">
         {/* DESKTOP VIEW */}
         <div className="hidden md:flex items-center justify-center">
-          <div className="flex w-full max-w-5xl bg-white rounded-[10px] overflow-hidden">
+          <div className="flex w-full max-w-5xl bg-white dark:bg-black rounded-[10px] overflow-hidden">
             {/* LEFT IMAGE */}
             <div className="w-1/2 relative h-64">
               <Image
@@ -28,7 +28,7 @@ export default function KnowMore() {
 
             {/* RIGHT CONTENT */}
             <div className="w-1/2 px-10 py-12 flex flex-col justify-center gap-5">
-              <h3 className="text-black text-2xl font-bold font-['Nunito_Sans'] leading-8">
+              <h3 className="text-black dark:text-white text-2xl font-bold font-['Nunito_Sans'] leading-8">
                 WOULD YOU LIKE TO KNOW MORE?
               </h3>
 
