@@ -17,6 +17,8 @@ export const metadata: Metadata = {
   description: "Your Future, Our Guidance. Expert Education Consultancy Services",
 };
 
+import FloatingContactButtons from "./smallComponents/FloatingContactButtons";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -28,6 +30,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <FloatingContactButtons />
       </body>
     </html>
   );
