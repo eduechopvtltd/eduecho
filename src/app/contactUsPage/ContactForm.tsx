@@ -25,6 +25,13 @@ export default function ContactForm() {
     setSubmitting(true);
     setStatus(null);
 
+    const dataToSubmit = {
+      ...formData,
+      _captcha: "false", // Disable captcha for easier activation/debugging
+      _template: "table", // Use the table template for better emails
+      _subject: "New Inquiry from Eduecho Website",
+    };
+
     try {
       const response = await fetch(
         "https://formsubmit.co/ajax/help@eduecho.in",
@@ -34,9 +41,12 @@ export default function ContactForm() {
             "Content-Type": "application/json",
             Accept: "application/json",
           },
-          body: JSON.stringify(formData),
+          body: JSON.stringify(dataToSubmit),
         }
       );
+
+      const result = await response.json();
+      console.log("FormSubmit Response:", result);
 
       if (response.ok) {
         setStatus("Message sent successfully!");
@@ -47,9 +57,10 @@ export default function ContactForm() {
           message: "",
         });
       } else {
-        setStatus("Something went wrong. Please try again.");
+        setStatus(`Error: ${result.message || "Something went wrong."}`);
       }
-    } catch {
+    } catch (error) {
+      console.error("Submission Error:", error);
       setStatus("Something went wrong. Please try again.");
     } finally {
       setSubmitting(false);
