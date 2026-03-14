@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   description: "Your Future, Our Guidance. Expert Education Consultancy Services",
 };
 
+import { Analytics } from "@vercel/analytics/next";
 import FloatingContactButtons from "./smallComponents/FloatingContactButtons";
 
 export default function RootLayout({
@@ -30,6 +31,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <Analytics />
         <FloatingContactButtons />
       </body>
     </html>
