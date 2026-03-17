@@ -40,14 +40,19 @@ export default function ContactSupportCards() {
           </div>
 
           {/* CARD 3 */}
-          <div className="w-72 h-64 bg-green-50   flex flex-col items-center justify-start pt-10 gap-4 px-4">
+          <div className="w-72 h-64 bg-green-50   flex flex-col items-center justify-start pt-10 gap-4 px-4 overflow-y-auto">
             <div className="w-14 h-14 bg-green-300 rounded-full flex items-center justify-center">
               <Image src={location} alt="Location" width={28} height={28} />
             </div>
             <h3 className="text-lg font-bold  font-['Khula']">Address</h3>
-            <p className="text-xs text-center font-['Nunito_Sans']">
-             1009 B Wing , 10th Floor , Mittal Tower , MG Road Bangalore, Karnataka - 560001
-            </p>
+            <div className="text-xs text-center font-['Nunito_Sans'] flex flex-col gap-2">
+              <p>
+                <span className="font-bold">Bangalore:</span> 1009 B Wing, 10th Floor, Mittal Tower, MG Road Bangalore, Karnataka - 560001
+              </p>
+              <p>
+                <span className="font-bold">Mumbai:</span> Office No. 230, 2nd floor, Sudama Space, Shree Ram Nagar Complex, Vartak Road Near Flyover, Virar West 401303
+              </p>
+            </div>
           </div>
 
         </div>

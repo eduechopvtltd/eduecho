@@ -134,9 +134,14 @@ export default function Footer() {
                 height={20}
                 className="mt-1"
               />
-              <p>
-                1009 B Wing, 10th Floor, Mittal Tower, MG Road Bangalore, Karnataka - 560001
-              </p>
+              <div className="flex flex-col gap-2">
+                <p>
+                  <span className="font-bold">Bangalore:</span> 1009 B Wing, 10th Floor, Mittal Tower, MG Road Bangalore, Karnataka - 560001
+                </p>
+                <p>
+                  <span className="font-bold">Mumbai:</span> Office No. 230, 2nd floor, Sudama Space, Shree Ram Nagar Complex, Vartak Road Near Flyover, Virar West 401303
+                </p>
+              </div>
             </div>
 
             {/* PHONE 1 */}
