@@ -29,10 +29,7 @@ export const metadata: Metadata = {
 
 import { Analytics } from "@vercel/analytics/next";
 import FloatingContactButtons from "./smallComponents/FloatingContactButtons";
-import { cn } from "@/lib/utils";
-
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
-
 
 export default function RootLayout({
   children,
@@ -40,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("scroll-smooth light", "font-sans", geist.variable, khula.variable, nunitoSans.variable)}>
+    <html lang="en" className={`scroll-smooth light font-sans ${geist.variable} ${khula.variable} ${nunitoSans.variable}`}>
       <body className={`${inter.variable} antialiased font-sans bg-white text-black`}>
         {children}
         <Analytics />
