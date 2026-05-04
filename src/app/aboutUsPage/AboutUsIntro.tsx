@@ -4,7 +4,7 @@ import { welcomeImageGirl1,welcomeImageGirl2,boyWithBag } from "../../../assets/
 
 export default function AboutUsIntro() {
   return (
-    <section className="w-full text-black  dark:text-white  bg-white dark:bg-black  py-12 md:py-20">
+    <section className="w-full text-black bg-white py-12 md:py-20">
       <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-10 items-center">
 
         {/* LEFT IMAGE STACK */}
@@ -34,16 +34,16 @@ export default function AboutUsIntro() {
 
 
         {/* RIGHT CONTENT */}
-        <div className="space-y-4 pl-5 md:pl-0 md:text-left dark:text-white">
+        <div className="space-y-4 pl-5 md:pl-0 md:text-left">
           <h2 className="text-xl md:text-2xl font-bold leading-snug">
             Welcome to Eduecho—Your Gateway to Global Education Opportunities!
           </h2>
 
-          <p className="text-sm text-gray-600 dark:text-white">
+          <p className="text-sm text-gray-600">
            At Eduecho, we specialize in providing comprehensive education consultancy services. Our mission is to help students like you achieve your academic and career goals, whether you want to study business, medicine, technology, or other fields. With our expert guidance, you can navigate the path to higher education with ease.
           </p>
 
-          <ul className="space-y-2 text-sm text-gray-700 dark:text-white">
+          <ul className="space-y-2 text-sm text-gray-700">
             <li className="flex items-center gap-2  md:justify-start">
               ✔ Comprehensive Consultancy
             </li>

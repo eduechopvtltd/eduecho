@@ -1,7 +1,7 @@
 import { visasImages } from "../../../../assets/images";
 export default function VisaServicesBody() {
   return (
-    <section className="w-full flex flex-col items-center">
+    <section className="w-full flex flex-col items-center bg-white">
       
       {/* HERO */}
       <div className="w-full flex flex-col lg:flex-row gap-10 px-8 lg:px-36 py-6 lg:py-0">
@@ -12,7 +12,7 @@ export default function VisaServicesBody() {
           </h1>
 
           <p className="text-xs lg:text-base font-normal font-['Nunito_Sans'] leading-6 lg:leading-8
-            text-black dark:text-white">
+            text-black">
             Navigating the visa application process can be complex and time-consuming. Our Visa Services 
             are designed to make the process seamless, stress-free, and efficient. Whether you’re traveling 
             for education, work, business, or leisure, we provide expert guidance and personalized support 
@@ -32,7 +32,7 @@ export default function VisaServicesBody() {
           Why Choose Our Visa Services?
         </h2>
 
-        <p className="text-black dark:text-white text-base font-['Nunito_Sans'] leading-8">
+        <p className="text-black text-base font-['Nunito_Sans'] leading-8">
           <b>Expert Guidance:</b> <br />Our experienced professionals stay updated with the latest visa policies and requirements to guide you effectively.<br/><br/>
           <b>Comprehensive Support:</b><br /> From documentation to submission, we handle every step of the process, minimizing errors and delays.<br/><br/>
           <b>Customized Assistance:</b> <br />Whether it’s a student visa, work visa, or tourist visa, our services are tailored to your specific needs.<br/><br/>
@@ -46,7 +46,7 @@ export default function VisaServicesBody() {
           Our Visa Services Include:
         </h2>
 
-        <p className="text-black dark:text-white text-base font-['Nunito_Sans'] leading-8">
+        <p className="text-black text-base font-['Nunito_Sans'] leading-8">
           <b>Student Visa Assistance:</b><br /> Get step-by-step guidance for applying to universities abroad, including documentation, SOPs, and interview preparation.<br/><br/>
           <b>Work Visa Support:</b> <br />Navigate the application process for job-related visas, including employer letters and sponsorship requirements.<br/><br/>
           <b>Tourist and Visitor Visas:</b><br /> Enjoy a stress-free travel experience with assistance in obtaining short-term visas for tourism or visiting family and friends.<br/><br/>
@@ -63,7 +63,7 @@ export default function VisaServicesBody() {
           Benefits of Our Visa Services:
         </h2>
 
-        <p className="text-black dark:text-white text-xs lg:text-base font-['Nunito_Sans'] leading-6 lg:leading-8">
+        <p className="text-black text-xs lg:text-base font-['Nunito_Sans'] leading-6 lg:leading-8">
           Avoid errors and delays with professional guidance.<br/>
           Save time and effort with our streamlined application process.<br/>
           Stay informed about visa policies and requirements for different countries.<br/>
@@ -77,7 +77,7 @@ export default function VisaServicesBody() {
           Your Journey Begins Here
         </h2>
 
-        <p className="text-black dark:text-white text-xs lg:text-base font-['Nunito_Sans'] leading-6 lg:leading-8">
+        <p className="text-black text-xs lg:text-base font-['Nunito_Sans'] leading-6 lg:leading-8">
           Whether you’re pursuing academic dreams, career goals, or travel adventures, obtaining the right visa is the first step. Let our experts take the stress out of the process, 
 so you can focus on what matters most.<br/><br/>
           Contact us today for reliable and efficient Visa Services, and let us help you turn your international aspirations into reality!

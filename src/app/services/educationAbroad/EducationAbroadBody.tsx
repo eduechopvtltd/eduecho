@@ -5,7 +5,7 @@ export default function EducationAbroadBody() {
       w-full max-w-7xl mx-auto 
       px-4 md:px-12 lg:px-20 
       py-10 space-y-16
-      text-black dark:text-white
+      text-black bg-white
     ">
 
       {/* HERO */}

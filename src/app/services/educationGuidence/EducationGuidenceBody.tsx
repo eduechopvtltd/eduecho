@@ -1,7 +1,7 @@
 import { GirlWithPen } from "../../../../assets/images";
 export default function AdmissionGuidanceBody() {
   return (
-    <section className="w-full  text-black dark:text-white  px-4 md:px-12 lg:px-20 py-10 space-y-16">
+    <section className="w-full text-black px-4 md:px-12 lg:px-20 py-10 space-y-16 bg-white">
 
       {/* HERO */}
       <div className="grid md:grid-cols-2 gap-10 items-center">

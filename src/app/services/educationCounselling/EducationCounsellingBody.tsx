@@ -2,7 +2,7 @@ import { educationCounslling } from "../../../../assets/images";
 
 export default function EducationCounselingBody() {
   return (
-    <div className="w-full  text-black  dark:text-white px-6 md:px-16 lg:px-32 py-12 space-y-20">
+    <div className="w-full text-black px-6 md:px-16 lg:px-32 py-12 space-y-20 bg-white">
 
       {/* HERO */}
       <section className="flex flex-col lg:flex-row items-start gap-10">

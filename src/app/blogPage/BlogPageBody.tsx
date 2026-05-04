@@ -25,7 +25,7 @@ const posts = [
 
 export default function BlogPageBody() {
   return (
-    <section className="w-full px-4 md:px-10 py-16 bg-white dark:bg-neutral-900">
+    <section className="w-full px-4 md:px-10 py-16 bg-white">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-10">
         
         {/* LEFT BLOG LIST */}
@@ -33,7 +33,7 @@ export default function BlogPageBody() {
           {posts.map((post) => (
             <div
               key={post.id}
-              className="rounded-2xl shadow-xl overflow-hidden bg-white dark:bg-neutral-800"
+              className="rounded-2xl shadow-xl overflow-hidden bg-white"
             >
               <Image
                 src={post.image}
@@ -48,16 +48,16 @@ export default function BlogPageBody() {
                   <span className="px-3 py-1 rounded-full bg-green-500 text-white">
                     {post.category}
                   </span>
-                  <span className="text-neutral-500 dark:text-neutral-400">
+                  <span className="text-neutral-500">
                     Eduecho • Jan 1, 2025
                   </span>
                 </div>
 
-                <h2 className="text-2xl font-bold text-black dark:text-white">
+                <h2 className="text-2xl font-bold text-black">
                   {post.title}
                 </h2>
 
-                <p className="text-neutral-600 dark:text-neutral-300 line-clamp-2">
+                <p className="text-neutral-600 line-clamp-2">
                   In order to write the perfect blog post, you need to break your
                   content up into paragraphs...
                 </p>
@@ -74,8 +74,8 @@ export default function BlogPageBody() {
         <aside className="flex flex-col gap-8">
           
           {/* SEARCH */}
-          <div className="bg-slate-100 dark:bg-neutral-800 p-6 rounded-xl">
-            <p className="mb-2 text-black dark:text-white">Search</p>
+          <div className="bg-slate-100 p-6 rounded-xl">
+            <p className="mb-2 text-black">Search</p>
             <input
               className="w-full p-3 rounded-md outline-none"
               placeholder="Search..."
@@ -87,10 +87,10 @@ export default function BlogPageBody() {
 
           {/* RECENT POSTS */}
           <div>
-            <h3 className="text-xl font-bold text-black dark:text-white mb-3">
+            <h3 className="text-xl font-bold text-black mb-3">
               Recent Post
             </h3>
-            <ul className="flex flex-col gap-3 text-black dark:text-white">
+            <ul className="flex flex-col gap-3 text-black">
               {posts.map((p) => (
                 <li key={p.id} className="hover:text-orange-500 cursor-pointer">
                   {p.title}
@@ -101,10 +101,10 @@ export default function BlogPageBody() {
 
           {/* CATEGORIES */}
           <div>
-            <h3 className="text-xl font-bold text-black dark:text-white mb-3">
+            <h3 className="text-xl font-bold text-black mb-3">
               Categories
             </h3>
-            <ul className="flex flex-col gap-2 text-black dark:text-white">
+            <ul className="flex flex-col gap-2 text-black">
               <li>› Students</li>
               <li>› Uncategorized</li>
             </ul>
@@ -112,7 +112,7 @@ export default function BlogPageBody() {
 
           {/* TAGS */}
           <div>
-            <h3 className="text-xl font-bold text-black dark:text-white mb-3">
+            <h3 className="text-xl font-bold text-black mb-3">
               Tags
             </h3>
             <div className="flex flex-wrap gap-2">
@@ -120,7 +120,7 @@ export default function BlogPageBody() {
                 (tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 bg-slate-100 dark:bg-neutral-700 rounded-lg text-black dark:text-white text-sm"
+                    className="px-3 py-1 bg-slate-100 rounded-lg text-black text-sm"
                   >
                     {tag}
                   </span>

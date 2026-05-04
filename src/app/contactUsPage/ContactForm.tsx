@@ -1,21 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { Send, Sparkles } from "lucide-react";
 
 export default function ContactForm() {
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    message: "",
-  });
-
+  const [formData, setFormData] = useState({ name: "", phone: "", email: "", message: "" });
   const [submitting, setSubmitting] = useState(false);
   const [status, setStatus] = useState<string | null>(null);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -27,40 +21,27 @@ export default function ContactForm() {
 
     const dataToSubmit = {
       ...formData,
-      _captcha: "false", // Disable captcha for easier activation/debugging
-      _template: "table", // Use the table template for better emails
+      _captcha: "false",
+      _template: "table",
       _subject: "New Inquiry from Eduecho Website",
     };
 
     try {
-      const response = await fetch(
-        "https://formsubmit.co/ajax/help@eduecho.in",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify(dataToSubmit),
-        }
-      );
+      const response = await fetch("https://formsubmit.co/ajax/help@eduecho.in", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(dataToSubmit),
+      });
 
       const result = await response.json();
-      console.log("FormSubmit Response:", result);
 
       if (response.ok) {
         setStatus("Message sent successfully!");
-        setFormData({
-          name: "",
-          phone: "",
-          email: "",
-          message: "",
-        });
+        setFormData({ name: "", phone: "", email: "", message: "" });
       } else {
         setStatus(`Error: ${result.message || "Something went wrong."}`);
       }
     } catch (error) {
-      console.error("Submission Error:", error);
       setStatus("Something went wrong. Please try again.");
     } finally {
       setSubmitting(false);
@@ -68,105 +49,67 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="w-full flex text-black  dark:text-white  bg-white dark:bg-black flex-col gap-4">
-      <h2 className="text-3xl md:text-4xl font-bold font-['Khula']">
-        Get in touch with us ✨
-      </h2>
+    <div className="w-full flex text-black bg-white flex-col gap-5">
+      <div className="flex items-center gap-2">
+        <Sparkles className="w-6 h-6 text-orange-500" />
+        <h2 className="text-2xl md:text-3xl font-bold">
+          Get in touch with us
+        </h2>
+      </div>
 
       <form
         onSubmit={handleSubmit}
-        className="w-full rounded-lg border border-gray-200 p-6 md:p-8 flex flex-col gap-4"
+        className="w-full rounded-2xl border border-gray-200 p-6 md:p-8 flex flex-col gap-4 relative overflow-hidden"
       >
-        {/* Name */}
-        <div>
-          <label
-            htmlFor="name"
-            className="block text-sm font-medium mb-1"
-          >
-            Name *
-          </label>
-          <input
-            id="name"
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Name"
-            required
-            className="w-full px-3 py-2 border rounded-md text-sm focus:outline-none"
-          />
-        </div>
+        {[
+          { id: "name", label: "Name", type: "text", required: true, placeholder: "Your full name" },
+          { id: "phone", label: "Phone", type: "tel", required: false, placeholder: "+91 XXXX XXXX XX" },
+          { id: "email", label: "Email", type: "email", required: true, placeholder: "you@example.com" },
+        ].map((field) => (
+          <div key={field.id} className="relative z-10">
+            <label htmlFor={field.id} className="block text-sm font-medium mb-1.5 text-gray-700">
+              {field.label} {field.required && <span className="text-orange-500">*</span>}
+            </label>
+            <input
+              id={field.id}
+              type={field.type}
+              name={field.id}
+              value={formData[field.id as keyof typeof formData]}
+              onChange={handleChange}
+              placeholder={field.placeholder}
+              required={field.required}
+              className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-all duration-300 bg-gray-50 hover:bg-white"
+            />
+          </div>
+        ))}
 
-        {/* Phone */}
-        <div>
-          <label
-            htmlFor="phone"
-            className="block text-sm font-medium mb-1"
-          >
-            Phone
-          </label>
-          <input
-            id="phone"
-            type="tel"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            placeholder="Phone"
-            className="w-full px-3 py-2 border rounded-md text-sm focus:outline-none"
-          />
-        </div>
-
-        {/* Email */}
-        <div>
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium mb-1"
-          >
-            Email *
-          </label>
-          <input
-            id="email"
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Email"
-            required
-            className="w-full px-3 py-2 border rounded-md text-sm focus:outline-none"
-          />
-        </div>
-
-        {/* Message */}
-        <div>
-          <label
-            htmlFor="message"
-            className="block text-sm font-medium mb-1"
-          >
-            Message *
+        <div className="relative z-10">
+          <label htmlFor="message" className="block text-sm font-medium mb-1.5 text-gray-700">
+            Message <span className="text-orange-500">*</span>
           </label>
           <textarea
             id="message"
             name="message"
             value={formData.message}
             onChange={handleChange}
-            placeholder="Message"
+            placeholder="Tell us about your requirements..."
             required
-            className="w-full px-3 py-2 border rounded-md text-sm min-h-[100px] focus:outline-none"
+            className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm min-h-[100px] focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-all duration-300 bg-gray-50 hover:bg-white resize-none"
           />
         </div>
 
-        {/* Submit */}
-        <button
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
           type="submit"
           disabled={submitting}
-          className="w-full bg-indigo-900 text-white py-2 rounded-md text-sm font-medium disabled:opacity-50"
+          className="relative z-10 w-full bg-gradient-to-r from-orange-500 to-orange-400 text-white py-3 rounded-xl text-sm font-semibold disabled:opacity-50 flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-orange-500/25 transition-shadow"
         >
-          {submitting ? "Sending..." : "Submit"}
-        </button>
+          {submitting ? "Sending..." : <><Send className="w-4 h-4" /> Submit</>}
+        </motion.button>
 
-        {/* Status */}
         {status && (
-          <p className="text-center text-sm text-green-600 mt-2">
+          <p className="relative z-10 text-center text-sm mt-1 text-green-600">
             {status}
           </p>
         )}

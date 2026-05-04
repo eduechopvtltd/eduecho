@@ -1,177 +1,149 @@
-// app/components/Footer.tsx
+"use client";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Instagram,
+  Linkedin,
+  Twitter,
+  ArrowRight,
+  ExternalLink,
+} from "lucide-react";
+import { eduecho } from "../../../assets/images";
 
-import { eduecho, location, phoneCall, email } from "../../../assets/images";
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
 
-export const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-};
-
-export default function Footer() {
   return (
-    <footer className="bg-[#0B1D3A] text-white">
-      <div className="max-w-7xl mx-auto px-6 pt-10 pb-6">
-        {/* MAIN GRID */}
-        <div className="grid gap-10 md:grid-cols-4">
-          {/* BRAND */}
-          <div className="flex flex-col gap-6">
-            <Image src={eduecho} alt="EduEcho" width={260} height={56} />
-            <p className="opacity-80 text-sm-bold leading-6 font-['Nunito_Sans']">
-              At Eduecho, we specialize in providing comprehensive education
-              consultancy services. Our mission is to help students like you
-              achieve your academic and career goals, whether you want to study
-              business, medicine,
+    <footer className="relative bg-[#0F172A] text-gray-300 pt-20 pb-10 overflow-hidden">
+      {/* Background patterns */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-500 via-purple-500 to-orange-500" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-500/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2" />
+
+      <div className="relative max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          {/* Company Info */}
+          <div className="space-y-6">
+            <Link href="/" className="inline-block transition-transform hover:scale-105">
+              <Image src={eduecho} alt="EduEcho Logo" width={180} height={60} className="h-12 w-auto" />
+            </Link>
+            <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
+              Empowering students to achieve their global education dreams through expert guidance and personalized solutions since 2015.
             </p>
+            <div className="flex items-center gap-4 pt-2">
+              {[Facebook, Instagram, Linkedin, Twitter].map((Icon, index) => (
+                <a
+                  key={index}
+                  href="#"
+                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-orange-500 hover:border-orange-500 hover:-translate-y-1 transition-all duration-300"
+                >
+                  <Icon className="w-5 h-5 text-white" />
+                </a>
+              ))}
+            </div>
           </div>
 
-          {/* USEFUL LINKS */}
+          {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-extrabold mb-5 font-['Nunito_Sans']">
-              Useful links
+            <h4 className="text-white font-bold text-lg mb-8 relative">
+              Quick Links
+              <span className="absolute -bottom-2 left-0 w-12 h-1 bg-orange-500 rounded-full" />
             </h4>
-            <ul className="space-y-3 opacity-80 text-sm">
-              <li>
-                <Link href="/" className="hover:text-orange-400">
-                  • Home
-                </Link>
+            <ul className="space-y-4">
+              {["About Us", "Our Services", "Testimonials", "Latest Blog", "Contact Us"].map((item) => (
+                <li key={item}>
+                  <Link
+                    href={`/${item.toLowerCase().replace(" ", "")}`}
+                    className="group flex items-center gap-3 hover:text-white transition-colors duration-300"
+                  >
+                    <ArrowRight className="w-4 h-4 text-orange-500 transition-transform group-hover:translate-x-1" />
+                    <span>{item}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h4 className="text-white font-bold text-lg mb-8 relative">
+              Get in Touch
+              <span className="absolute -bottom-2 left-0 w-12 h-1 bg-orange-500 rounded-full" />
+            </h4>
+            <ul className="space-y-5">
+              <li className="flex items-start gap-4 group">
+                <div className="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center shrink-0 border border-orange-500/20 group-hover:bg-orange-500 transition-colors duration-300">
+                  <Phone className="w-5 h-5 text-orange-500 group-hover:text-white" />
+                </div>
+                <div>
+                  <p className="text-white font-semibold text-sm">Call Us</p>
+                  <a href="tel:+917411605384" className="text-sm text-gray-400 hover:text-white transition-colors">+91 7411605384</a>
+                </div>
               </li>
-              <li>
-                <Link href="/aboutUsPage" className="hover:text-orange-400">
-                  • About Us
-                </Link>
+              <li className="flex items-start gap-4 group">
+                <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center shrink-0 border border-purple-500/20 group-hover:bg-purple-500 transition-colors duration-300">
+                  <Mail className="w-5 h-5 text-purple-500 group-hover:text-white" />
+                </div>
+                <div>
+                  <p className="text-white font-semibold text-sm">Email Us</p>
+                  <a href="mailto:help@eduecho.in" className="text-sm text-gray-400 hover:text-white transition-colors">help@eduecho.in</a>
+                </div>
               </li>
-              <li>
-                <Link href="/blogPage" className="hover:text-orange-400">
-                  • Blog
-                </Link>
-              </li>
-              <li>
-                <Link href="/contactUsPage" className="hover:text-orange-400">
-                  • Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/privacyPolicy" className="hover:text-orange-400">
-                  • Privacy Policy
-                </Link>
+              <li className="flex items-start gap-4 group">
+                <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center shrink-0 border border-blue-500/20 group-hover:bg-blue-500 transition-colors duration-300">
+                  <MapPin className="w-5 h-5 text-blue-500 group-hover:text-white" />
+                </div>
+                <div>
+                  <p className="text-white font-semibold text-sm">Our Offices</p>
+                  <p className="text-xs text-gray-400 mt-2">
+                    <span className="font-bold text-gray-300">Bangalore:</span> 1009 B Wing, 10th Floor, Mittal Tower, MG Road Bangalore, Karnataka - 560001
+                  </p>
+                  <p className="text-xs text-gray-400 mt-2">
+                    <span className="font-bold text-gray-300">Mumbai:</span> Office No. 230, 2nd floor, Sudama Space, Shree Ram Nagar Complex, Vartak Road Near Flyover, Virar West 401303
+                  </p>
+                </div>
               </li>
             </ul>
           </div>
 
-          {/* OUR SERVICES */}
-          <div>
-            <h4 className="text-lg font-extrabold mb-5 font-['Nunito_Sans']">
-              Our Services
+          {/* Newsletter */}
+          <div className="space-y-6">
+            <h4 className="text-white font-bold text-lg mb-8 relative">
+              Newsletter
+              <span className="absolute -bottom-2 left-0 w-12 h-1 bg-orange-500 rounded-full" />
             </h4>
-            <ul className="space-y-3 opacity-80 text-sm">
-              <li>
-                <Link
-                  href="/services/educationCounselling"
-                  className="hover:text-orange-400"
-                >
-                  • Education Counseling
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/educationGuidence"
-                  className="hover:text-orange-400"
-                >
-                  • Admission Guidance
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/educationAbroad"
-                  className="hover:text-orange-400"
-                >
-                  • Education Abroad
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/interviewPreparation"
-                  className="hover:text-orange-400"
-                >
-                  • Interview Preparation
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/examinationPreparation"
-                  className="hover:text-orange-400"
-                >
-                  • Examination Preparation
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/visaServices"
-                  className="hover:text-orange-400"
-                >
-                  • Visa Services
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* CONTACT */}
-          <div className="space-y-4 opacity-80 text-sm">
-            <h4 className="text-lg text-white font-extrabold mb-5 font-['Nunito_Sans']">
-              Contact Us
-            </h4>
-
-            {/* LOCATION */}
-            <div className="flex gap-3 items-start">
-              <Image
-                src={location}
-                alt="Location"
-                width={20}
-                height={20}
-                className="mt-1"
+            <p className="text-sm text-gray-400">Subscribe to get latest updates and education tips.</p>
+            <div className="relative group">
+              <input
+                type="email"
+                placeholder="Your email address"
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 text-sm focus:outline-none focus:border-orange-500 transition-colors"
               />
-              <div className="flex flex-col gap-2">
-                <p>
-                  <span className="font-bold">Bangalore:</span> 1009 B Wing, 10th Floor, Mittal Tower, MG Road Bangalore, Karnataka - 560001
-                </p>
-                <p>
-                  <span className="font-bold">Mumbai:</span> Office No. 230, 2nd floor, Sudama Space, Shree Ram Nagar Complex, Vartak Road Near Flyover, Virar West 401303
-                </p>
-              </div>
-            </div>
-
-            {/* PHONE 1 */}
-            <div className="flex gap-3 items-center">
-              <Image src={phoneCall} alt="Call" width={20} height={20} />
-              <a href="tel:+917411605384">+91 7411605384</a>
-            </div>
-
-            {/* PHONE 2 */}
-            <div className="flex gap-3 items-center">
-              <Image src={phoneCall} alt="Call" width={20} height={20} />
-              <a href="tel:+918660047495">+91 8660047495</a>
-            </div>
-
-            {/* EMAIL */}
-            <div className="flex gap-3 items-center">
-              <Image src={email} alt="Email" width={20} height={20} />
-              <a href="mailto:help@eduecho.in">help@eduecho.in</a>
+              <button className="absolute right-2 top-2 p-2 bg-orange-500 rounded-lg hover:bg-orange-600 transition-colors">
+                <ArrowRight className="w-4 h-4 text-white" />
+              </button>
             </div>
           </div>
         </div>
+
+        {/* Footer Bottom */}
+        <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-sm text-gray-500">
+            © {currentYear} <span className="text-white font-semibold">EduEcho</span>. All rights reserved.
+          </p>
+          <div className="flex gap-8 text-sm text-gray-500">
+            <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
+          </div>
+        </div>
       </div>
-
-      {/* DIVIDER */}
-      <div className="border-t border-white/20 my-8" />
-
-      {/* COPYRIGHT */}
-      <p className="text-center text-xs opacity-70">
-        © Copyright 2026 EDUECHO PVT. LTD. All rights reserved.
-      </p>
     </footer>
   );
-}
+};
+
+export default Footer;

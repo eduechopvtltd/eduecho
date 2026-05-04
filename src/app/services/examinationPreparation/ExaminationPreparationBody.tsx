@@ -6,7 +6,7 @@ export default function ExaminationPreparationBody() {
         w-full max-w-7xl mx-auto
         px-6 sm:px-8 md:px-12 lg:px-20
         py-10 space-y-16
-        text-black dark:text-white
+        text-black bg-white
       "
     >
 
