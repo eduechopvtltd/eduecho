@@ -69,8 +69,8 @@ const NavBar = () => {
     <motion.header 
       initial={{ y: 0 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className={`w-full sticky top-0 z-40 transition-colors duration-500 ${
-      scrolled ? "glass-navbar shadow-lg" : "bg-white"
+      className={`w-full sticky top-0 z-40 transition-all duration-700 ease-in-out ${
+      scrolled ? "liquid-glass mt-4 mx-auto max-w-[95%] rounded-2xl shadow-[0_8px_32px_0_rgba(31,38,135,0.15)]" : "bg-white"
     }`}>
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
