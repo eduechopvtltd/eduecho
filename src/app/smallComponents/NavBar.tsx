@@ -16,8 +16,6 @@ const NavBar = () => {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement | null>(null);
   const [scrolled, setScrolled] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
 
   const pathname = usePathname();
   const servicesRef = useRef<HTMLDivElement | null>(null);
@@ -25,24 +23,12 @@ const NavBar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      // Update scrolled state for glass effect
-      setScrolled(currentScrollY > 20);
-
-      // Hide on scroll down, show on scroll up
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-
-      setLastScrollY(currentScrollY);
+      setScrolled(window.scrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -82,7 +68,6 @@ const NavBar = () => {
   return (
     <motion.header 
       initial={{ y: 0 }}
-      animate={{ y: isVisible ? 0 : -100 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
       className={`w-full sticky top-0 z-40 transition-colors duration-500 ${
       scrolled ? "glass-navbar shadow-lg" : "bg-white"
