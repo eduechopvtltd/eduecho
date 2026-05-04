@@ -103,7 +103,7 @@ const NavBar = () => {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 8, scale: 0.96 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute top-full left-0 mt-3 w-64 bg-white shadow-xl border border-gray-100 rounded-xl z-50 overflow-hidden"
+                  className="absolute top-full left-0 mt-3 w-64 liquid-glass shadow-2xl border border-white/20 rounded-xl z-50 overflow-hidden"
                 >
                   <ul className="flex flex-col text-sm py-2">
                     {serviceLinks.map((link) => (
