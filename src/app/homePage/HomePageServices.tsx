@@ -69,7 +69,7 @@ const services = [
 
 export default function HomePageServices() {
   return (
-    <section className="bg-[#0a0a1a] px-4 py-16 md:py-24 relative overflow-hidden">
+    <section id="our-services" className="bg-[#0a0a1a] px-4 py-16 md:py-24 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
 

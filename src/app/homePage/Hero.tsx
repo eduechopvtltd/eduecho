@@ -12,20 +12,29 @@ export default function Hero() {
   const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowPopup(true);
-    }, 3000);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShowPopup(true);
+          observer.disconnect(); // Show only once
+        }
+      },
+      { threshold: 0.2 } // Trigger when 20% of section is visible
+    );
 
-    return () => clearTimeout(timer); // cleanup
+    const target = document.getElementById("our-services");
+    if (target) observer.observe(target);
+
+    return () => observer.disconnect();
   }, []);
 
   return (
     <section className="w-full">
       <div className="relative w-full overflow-hidden">
-        {/* Hero Image with subtle zoom animation */}
+        {/* Hero Image - No initial fade */}
         <motion.div
-          initial={{ scale: 1.05, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
+          initial={{ scale: 1.05 }}
+          animate={{ scale: 1 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
         >
           <Image
@@ -35,9 +44,6 @@ export default function Hero() {
             className="w-full h-auto"
           />
         </motion.div>
-
-        {/* Gradient overlay at bottom for smooth transition */}
-        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent pointer-events-none" />
       </div>
 
       {/* ORANGE STRIP */}
