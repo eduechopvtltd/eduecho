@@ -17,7 +17,7 @@ export default function ContactSupportCards() {
         <div className="grid grid-cols-1 text-black md:grid-cols-3 gap-8 md:gap-24 justify-items-center">
 
           {/* CARD 1 */}
-          <div className="w-72 h-64 bg-[#E5F8F6] flex flex-col items-center justify-start pt-10 gap-4 rounded-xl shadow-md border border-transparent">
+          <div className="w-100 h-70 bg-[#E5F8F6] flex flex-col items-center justify-start pt-10 gap-4 rounded-xl shadow-md border border-transparent">
             <div className="w-14 h-14 bg-teal-500 rounded-full flex items-center justify-center">
               <Image src={phoneCall} alt="Call" width={28} height={28} />
             </div>
@@ -29,7 +29,7 @@ export default function ContactSupportCards() {
           </div>
 
           {/* CARD 2 */}
-          <div className="w-72 h-64 bg-orange-50 flex flex-col items-center justify-start pt-10 gap-4 rounded-xl shadow-md border border-transparent">
+          <div className="w-100 h-70 bg-orange-50 flex flex-col items-center justify-start pt-10 gap-4 rounded-xl shadow-md border border-transparent">
             <div className="w-14 h-14 bg-orange-200 rounded-full flex items-center justify-center">
               <Image src={email} alt="Email" width={28} height={28} />
             </div>
@@ -40,7 +40,7 @@ export default function ContactSupportCards() {
           </div>
 
           {/* CARD 3 */}
-          <div className="w-72 h-64 bg-green-50 flex flex-col items-center justify-start pt-10 gap-4 px-4 overflow-y-auto rounded-xl shadow-md border border-transparent">
+          <div className="w-100 h-70 bg-green-50 flex flex-col items-center justify-start pt-10 gap-4 px-4 overflow-y-auto rounded-xl shadow-md border border-transparent">
             <div className="w-14 h-14 bg-green-300 rounded-full flex items-center justify-center">
               <Image src={location} alt="Location" width={28} height={28} />
             </div>
@@ -51,6 +51,9 @@ export default function ContactSupportCards() {
               </p>
               <p>
                 <span className="font-bold">Mumbai:</span> Office No. 230, 2nd floor, Sudama Space, Shree Ram Nagar Complex, Vartak Road Near Flyover, Virar West 401303
+              </p>
+              <p>
+                <span className="font-bold">Guwahati:</span> 1st floor, House No 112, Beltola, Tripura Road, Jayanagar, Opp Zudio Showroom, Guwahati- 781022
               </p>
             </div>
           </div>

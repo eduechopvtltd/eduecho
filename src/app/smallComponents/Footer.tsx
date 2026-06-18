@@ -106,6 +106,9 @@ const Footer = () => {
                   <p className="text-xs text-gray-400 mt-2">
                     <span className="font-bold text-gray-300">Mumbai:</span> Office No. 230, 2nd floor, Sudama Space, Shree Ram Nagar Complex, Vartak Road Near Flyover, Virar West 401303
                   </p>
+                  <p className="text-xs text-gray-400 mt-2">
+                    <span className="font-bold text-gray-300">Guwahati:</span> 1st floor, House No 112, Beltola, Tripura Road, Jayanagar, Opp Zudio Showroom, Guwahati- 781022
+                  </p>
                 </div>
               </li>
             </ul>
