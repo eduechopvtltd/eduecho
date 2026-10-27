@@ -31,6 +31,8 @@ import welcomeImageGirl1 from './welcomeImageGirl1.jpg';
 import welcomeImageGirl2 from './welcomeImageGirl2.jpg';
 import writingPenImage from './writingPenImage.jpg';
 import homepage from './homepage.png';
+import christBanner from './christ_banner.png';
+import overseasBanner from './overseas_banner.jpg';
 import expert from './expert.png';
 import global from './global.png';
 import endToEnd from './endToEnd.png'
@@ -49,6 +51,6 @@ export{
     girlTalking,GirlWithPen,globeGraduation,graduationImage,groupStudyYellow,guySeeingPhone,guysOnStairs,
     HLPP82,homePageBoyPotential,interviewLaptop,InterviewPrep,laptopAndPens,latestBlog,location,newDocument,
     phoneCall,showingPresentation,visasImages,welcomeImageGirl1,welcomeImageGirl2,writingPenImage,
-    homepage,expert,global,endToEnd,educationCounselingServices,admissionGuidence,educationServices,
+    homepage,christBanner,overseasBanner,expert,global,endToEnd,educationCounselingServices,admissionGuidence,educationServices,
     interviewPrepServices,examPrepServices,visaServices,facebook,instagram,linkdlin,chooseUs,
 }
