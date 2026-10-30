@@ -4,6 +4,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send, Sparkles, MessageSquare, AlertCircle } from "lucide-react";
 
+const WEB3FORMS_ACCESS_KEY = "83654145-8ee1-4056-a0fb-b66267ecfba0";
+
 export default function ContactForm() {
   const [formData, setFormData] = useState({ name: "", phone: "", email: "", message: "" });
   const [submitting, setSubmitting] = useState(false);
@@ -26,31 +28,33 @@ export default function ContactForm() {
     setStatus(null);
     setIsError(false);
 
-    const dataToSubmit = {
-      ...formData,
-      _captcha: "false",
-      _template: "table",
-      _subject: "New Inquiry from Eduecho Website",
-    };
+    const submissionData = new FormData();
+    submissionData.append("access_key", WEB3FORMS_ACCESS_KEY);
+    submissionData.append("name", formData.name);
+    submissionData.append("phone", formData.phone || "Not provided");
+    submissionData.append("email", formData.email);
+    submissionData.append("message", formData.message);
+    submissionData.append("subject", "New Inquiry from Contact Us Page - Eduecho");
+    submissionData.append("from_name", "Eduecho Website");
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/help@eduecho.in", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(dataToSubmit),
+        headers: { Accept: "application/json" },
+        body: submissionData,
       });
 
-      if (!response.ok) {
-        throw new Error(`Server returned status ${response.status}`);
+      const data = await response.json().catch(() => ({}));
+
+      if (response.ok && data.success) {
+        setStatus("Thank you! Your message has been sent successfully.");
+        setIsError(false);
+        setFormData({ name: "", phone: "", email: "", message: "" });
+      } else {
+        throw new Error(data.message || `Server returned ${response.status}`);
       }
-
-      const result = await response.json().catch(() => ({}));
-
-      setStatus("Message sent successfully! We will contact you shortly.");
-      setIsError(false);
-      setFormData({ name: "", phone: "", email: "", message: "" });
     } catch {
-      setStatus("Email submission service is temporarily unavailable.");
+      setStatus("Unable to send inquiry right now. Please message us on WhatsApp below.");
       setIsError(true);
     } finally {
       setSubmitting(false);
@@ -70,6 +74,9 @@ export default function ContactForm() {
         onSubmit={handleSubmit}
         className="w-full rounded-2xl border border-gray-200 p-6 md:p-8 flex flex-col gap-4 relative overflow-hidden"
       >
+        {/* Honeypot field for spam prevention */}
+        <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} />
+
         {[
           { id: "name", label: "Name", type: "text", required: true, placeholder: "Your full name" },
           { id: "phone", label: "Phone", type: "tel", required: false, placeholder: "+91 XXXX XXXX XX" },
