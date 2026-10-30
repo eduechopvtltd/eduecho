@@ -9,11 +9,28 @@ import {
   Facebook,
   Instagram,
   Linkedin,
-  Twitter,
   ArrowRight,
   ExternalLink,
 } from "lucide-react";
 import { eduecho } from "../../../assets/images";
+
+const socialLinks = [
+  {
+    icon: Facebook,
+    href: "https://www.facebook.com/eduecho.pvt.ltd",
+    label: "Facebook",
+  },
+  {
+    icon: Instagram,
+    href: "https://www.instagram.com/eduecho.pvt.ltd",
+    label: "Instagram",
+  },
+  {
+    icon: Linkedin,
+    href: "https://www.linkedin.com/company/eduechopvtltd",
+    label: "LinkedIn",
+  },
+];
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -36,10 +53,13 @@ const Footer = () => {
               Empowering students to achieve their global education dreams through expert guidance and personalized solutions since 2015.
             </p>
             <div className="flex items-center gap-4 pt-2">
-              {[Facebook, Instagram, Linkedin, Twitter].map((Icon, index) => (
+              {socialLinks.map(({ icon: Icon, href, label }) => (
                 <a
-                  key={index}
-                  href="#"
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
                   className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-orange-500 hover:border-orange-500 hover:-translate-y-1 transition-all duration-300"
                 >
                   <Icon className="w-5 h-5 text-white" />
@@ -140,7 +160,7 @@ const Footer = () => {
             © {currentYear} <span className="text-white font-semibold">EduEcho</span>. All rights reserved.
           </p>
           <div className="flex gap-8 text-sm text-gray-500">
-            <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/privacyPolicy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
         </div>
