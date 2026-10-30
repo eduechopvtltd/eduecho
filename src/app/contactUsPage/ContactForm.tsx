@@ -2,22 +2,29 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, Sparkles } from "lucide-react";
+import { Send, Sparkles, MessageSquare, AlertCircle } from "lucide-react";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({ name: "", phone: "", email: "", message: "" });
   const [submitting, setSubmitting] = useState(false);
   const [status, setStatus] = useState<string | null>(null);
+  const [isError, setIsError] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const getWhatsAppUrl = () => {
+    const text = `Hello Eduecho Team,\n\nI would like to enquire about admission guidance.\n\n*Name:* ${formData.name || "N/A"}\n*Phone:* ${formData.phone || "N/A"}\n*Email:* ${formData.email || "N/A"}\n*Message:* ${formData.message || "N/A"}`;
+    return `https://wa.me/917411605384?text=${encodeURIComponent(text)}`;
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitting(true);
     setStatus(null);
+    setIsError(false);
 
     const dataToSubmit = {
       ...formData,
@@ -33,16 +40,18 @@ export default function ContactForm() {
         body: JSON.stringify(dataToSubmit),
       });
 
-      const result = await response.json();
-
-      if (response.ok) {
-        setStatus("Message sent successfully!");
-        setFormData({ name: "", phone: "", email: "", message: "" });
-      } else {
-        setStatus(`Error: ${result.message || "Something went wrong."}`);
+      if (!response.ok) {
+        throw new Error(`Server returned status ${response.status}`);
       }
-    } catch (error) {
-      setStatus("Something went wrong. Please try again.");
+
+      const result = await response.json().catch(() => ({}));
+
+      setStatus("Message sent successfully! We will contact you shortly.");
+      setIsError(false);
+      setFormData({ name: "", phone: "", email: "", message: "" });
+    } catch {
+      setStatus("Email submission service is temporarily unavailable.");
+      setIsError(true);
     } finally {
       setSubmitting(false);
     }
@@ -103,15 +112,30 @@ export default function ContactForm() {
           whileTap={{ scale: 0.98 }}
           type="submit"
           disabled={submitting}
-          className="relative z-10 w-full bg-gradient-to-r from-orange-500 to-orange-400 text-white py-3 rounded-xl text-sm font-semibold disabled:opacity-50 flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-orange-500/25 transition-shadow"
+          className="relative z-10 w-full bg-gradient-to-r from-orange-500 to-orange-400 text-white py-3 rounded-xl text-sm font-semibold disabled:opacity-50 flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-orange-500/25 transition-shadow cursor-pointer"
         >
           {submitting ? "Sending..." : <><Send className="w-4 h-4" /> Submit</>}
         </motion.button>
 
         {status && (
-          <p className="relative z-10 text-center text-sm mt-1 text-green-600">
-            {status}
-          </p>
+          <div className="relative z-10 flex flex-col gap-2 mt-1">
+            <div className={`flex items-center justify-center gap-2 text-sm text-center font-medium ${isError ? "text-red-600" : "text-green-600"}`}>
+              {isError && <AlertCircle className="w-4 h-4 shrink-0 text-red-500" />}
+              <span>{status}</span>
+            </div>
+
+            {isError && (
+              <a
+                href={getWhatsAppUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 px-4 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-xl text-sm font-semibold flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all duration-200"
+              >
+                <MessageSquare className="w-4 h-4" />
+                <span>Send Inquiry via WhatsApp</span>
+              </a>
+            )}
+          </div>
         )}
       </form>
     </div>

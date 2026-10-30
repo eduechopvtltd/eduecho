@@ -2,38 +2,56 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Send, Sparkles } from "lucide-react";
+import { X, Send, Sparkles, MessageSquare, AlertCircle } from "lucide-react";
 
 export default function EnquireNowForm({ onClose }: { onClose: () => void }) {
   const [formData, setFormData] = useState({ name: "", phone: "", email: "", message: "" });
   const [submitting, setSubmitting] = useState(false);
   const [status, setStatus] = useState<string | null>(null);
+  const [isError, setIsError] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const getWhatsAppUrl = () => {
+    const text = `Hello Eduecho Team,\n\nI would like to enquire about admission guidance.\n\n*Name:* ${formData.name || "N/A"}\n*Phone:* ${formData.phone || "N/A"}\n*Email:* ${formData.email || "N/A"}\n*Message:* ${formData.message || "N/A"}`;
+    return `https://wa.me/917411605384?text=${encodeURIComponent(text)}`;
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitting(true);
     setStatus(null);
-    const dataToSubmit = { ...formData, _captcha: "false", _template: "table", _subject: "New Quote Request via Enquire Now" };
+    setIsError(false);
+
+    const dataToSubmit = {
+      ...formData,
+      _captcha: "false",
+      _template: "table",
+      _subject: "New Quote Request via Enquire Now",
+    };
+
     try {
       const response = await fetch("https://formsubmit.co/ajax/help@eduecho.in", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(dataToSubmit),
       });
-      const result = await response.json();
-      if (response.ok) {
-        setStatus("Message sent successfully!");
-        setFormData({ name: "", phone: "", email: "", message: "" });
-      } else {
-        setStatus(`Error: ${result.message || "Something went wrong."}`);
+
+      if (!response.ok) {
+        throw new Error(`Server returned status ${response.status}`);
       }
+
+      const result = await response.json().catch(() => ({}));
+
+      setStatus("Message sent successfully! We will contact you shortly.");
+      setIsError(false);
+      setFormData({ name: "", phone: "", email: "", message: "" });
     } catch {
-      setStatus("Something went wrong. Please try again.");
+      setStatus("Email submission service is temporarily unavailable.");
+      setIsError(true);
     } finally {
       setSubmitting(false);
     }
@@ -53,7 +71,11 @@ export default function EnquireNowForm({ onClose }: { onClose: () => void }) {
         transition={{ type: "spring", damping: 25, stiffness: 300 }}
         className="bg-white p-7 rounded-2xl w-full max-w-md relative max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-100 overflow-hidden"
       >
-        <button onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 hover:rotate-90 transition-all duration-300 w-8 h-8 rounded-full hover:bg-gray-100 flex items-center justify-center z-20">
+        <button
+          onClick={onClose}
+          aria-label="Close"
+          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 hover:rotate-90 transition-all duration-300 w-8 h-8 rounded-full hover:bg-gray-100 flex items-center justify-center z-20"
+        >
           <X className="w-5 h-5" />
         </button>
 
@@ -71,21 +93,65 @@ export default function EnquireNowForm({ onClose }: { onClose: () => void }) {
               { id: "email", label: "Email", type: "email", required: true, placeholder: "you@example.com" },
             ].map((field) => (
               <div key={field.id}>
-                <label htmlFor={field.id} className="block text-sm font-medium mb-1.5 text-gray-700">{field.label} {field.required && <span className="text-orange-500">*</span>}</label>
-                <input id={field.id} type={field.type} name={field.id} value={formData[field.id as keyof typeof formData]} onChange={handleChange} placeholder={field.placeholder} required={field.required}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-all duration-300 bg-gray-50 hover:bg-white" />
+                <label htmlFor={field.id} className="block text-sm font-medium mb-1.5 text-gray-700">
+                  {field.label} {field.required && <span className="text-orange-500">*</span>}
+                </label>
+                <input
+                  id={field.id}
+                  type={field.type}
+                  name={field.id}
+                  value={formData[field.id as keyof typeof formData]}
+                  onChange={handleChange}
+                  placeholder={field.placeholder}
+                  required={field.required}
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-all duration-300 bg-gray-50 hover:bg-white"
+                />
               </div>
             ))}
             <div>
-              <label htmlFor="message" className="block text-sm font-medium mb-1.5 text-gray-700">Message <span className="text-orange-500">*</span></label>
-              <textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="Tell us about your requirements..." required
-                className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm min-h-[100px] focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-all duration-300 bg-gray-50 hover:bg-white resize-none" />
+              <label htmlFor="message" className="block text-sm font-medium mb-1.5 text-gray-700">
+                Message <span className="text-orange-500">*</span>
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Tell us about your requirements..."
+                required
+                className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm min-h-[100px] focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-all duration-300 bg-gray-50 hover:bg-white resize-none"
+              />
             </div>
-            <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} type="submit" disabled={submitting}
-              className="w-full bg-gradient-to-r from-orange-500 to-orange-400 text-white py-3 rounded-xl text-sm font-semibold disabled:opacity-50 flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-orange-500/25 transition-shadow">
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              type="submit"
+              disabled={submitting}
+              className="w-full bg-gradient-to-r from-orange-500 to-orange-400 text-white py-3 rounded-xl text-sm font-semibold disabled:opacity-50 flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-orange-500/25 transition-shadow cursor-pointer"
+            >
               {submitting ? "Sending..." : <><Send className="w-4 h-4" /> Submit</>}
             </motion.button>
-            {status && <p className={`text-center text-sm mt-1 ${status.includes("Error") ? "text-red-500" : "text-green-600"}`}>{status}</p>}
+
+            {status && (
+              <div className="flex flex-col gap-2 mt-1">
+                <div className={`flex items-center justify-center gap-2 text-sm text-center font-medium ${isError ? "text-red-600" : "text-green-600"}`}>
+                  {isError && <AlertCircle className="w-4 h-4 shrink-0 text-red-500" />}
+                  <span>{status}</span>
+                </div>
+
+                {isError && (
+                  <a
+                    href={getWhatsAppUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-2.5 px-4 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-xl text-sm font-semibold flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all duration-200"
+                  >
+                    <MessageSquare className="w-4 h-4" />
+                    <span>Send Inquiry via WhatsApp</span>
+                  </a>
+                )}
+              </div>
+            )}
           </form>
         </div>
       </motion.div>
